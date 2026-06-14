@@ -1,0 +1,9 @@
+# Cloudflare Workers config — serves the static site in /public.
+# Deploys via `npx wrangler deploy` (the command Cloudflare runs on each push).
+name = "rickroadneighbors"
+compatibility_date = "2026-06-14"
+
+# Static-assets-only Worker: no script, just serve files from ./public
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
