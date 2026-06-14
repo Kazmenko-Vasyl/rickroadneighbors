@@ -11,108 +11,115 @@
   <meta property="og:description" content="A community effort led by your neighbors. Adding your name takes about five minutes and commits you to nothing." />
   <meta property="og:url" content="https://rickroadneighbors.com" />
   <meta property="og:image" content="https://rickroadneighbors.com/rickroad.jpg" />
-  <meta name="theme-color" content="#f4f1ea" />
+  <meta name="theme-color" content="#ffffff" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,18,400;0,18,500;1,18,400;1,18,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,18,400;1,18,500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f4f1ea;
-      --panel: #e8e2d7;
-      --card: #fbf9f5;
-      --ink: #211c16;
-      --ink-soft: #574f44;
-      --muted: #9a9082;
-      --line: #e0d9cc;
-      --line-soft: #ebe5da;
-      --btn: #211c16;
-      --max: 1140px;
+      --bg: #ffffff;
+      --ink: #12161c;
+      --ink-soft: #555c65;
+      --muted: #9aa0a8;
+      --line: #e7e9ed;
+      --band: #eaf1f9;          /* pale blue */
+      --band-line: #d8e4f1;
+      --blue: #2563eb;
+      --max: 1080px;
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
     body {
       margin: 0; background: var(--bg); color: var(--ink);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
     a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 30px; }
-    .reading { max-width: 660px; margin: 0 auto; }
-    .serif { font-family: "Newsreader", Georgia, serif; }
-    .eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+    .serif { font-family: "Newsreader", Georgia, serif; font-style: italic; }
+    .eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0; }
 
-    .btn { display: inline-flex; align-items: center; gap: 9px; background: var(--btn); color: #f4f1ea; text-decoration: none; font-weight: 500; font-size: 15.5px; padding: 15px 26px; border-radius: 999px; transition: background .18s ease, transform .08s ease; }
+    .link { font-weight: 600; font-size: 15px; text-decoration: none; color: var(--blue); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+    .link .a { transition: transform .18s ease; }
+    .link:hover .a { transform: translateX(3px); }
+
+    .btn { display: inline-flex; align-items: center; gap: 9px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 500; font-size: 15.5px; padding: 15px 26px; border-radius: 999px; transition: background .18s ease, transform .08s ease; }
     .btn:hover { background: #000; }
     .btn:active { transform: translateY(1px); }
     .btn .a { transition: transform .18s ease; }
     .btn:hover .a { transform: translateX(3px); }
-    .arrow { font-weight: 500; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; white-space: nowrap; transition: opacity .15s ease; }
-    .arrow:hover { opacity: 0.55; }
 
     /* ---------- Nav ---------- */
-    nav { position: sticky; top: 0; z-index: 50; background: rgba(244,241,234,0.82); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--line-soft); }
-    nav .row { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; letter-spacing: 0.02em; font-size: 16px; text-decoration: none; }
-    .brand .mark { width: 8px; height: 8px; border-radius: 999px; background: var(--ink); }
-    .nav-link { font-size: 14px; text-decoration: none; color: var(--ink); }
-    .nav-link:hover { opacity: 0.55; }
+    nav { border-bottom: 1px solid var(--line); }
+    nav .row { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+    .brand { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
+    .brand .tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .brand .name { font-weight: 800; letter-spacing: -0.02em; font-size: 17px; }
+    .nav-pill { font-size: 14px; font-weight: 600; text-decoration: none; background: var(--ink); color: #fff; padding: 9px 16px; border-radius: 999px; }
+    .nav-pill:hover { background: #000; }
 
-    /* ---------- Hero ---------- */
-    .hero-photo { width: 100%; height: clamp(320px, 56vw, 580px); overflow: hidden; background: var(--panel); }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* ---------- Hero band ---------- */
+    .hero-band { background: var(--band); border-bottom: 1px solid var(--band-line); }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: end; padding: 58px 0; }
+    .hero-grid h1 { font-size: clamp(34px, 5.4vw, 58px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 800; margin: 16px 0 0; }
+    .hero-aside p.lede { color: var(--ink-soft); margin: 0 0 12px; }
+    .hero-aside p.sub { color: var(--ink); font-size: 17px; margin: 0 0 18px; }
 
-    .hero-intro { padding: 64px 0 8px; text-align: center; }
-    .hero-intro .eyebrow { margin-bottom: 18px; }
-    .hero-intro h1 { font-size: clamp(34px, 5.4vw, 58px); line-height: 1.07; letter-spacing: -0.035em; font-weight: 600; margin: 0 auto 26px; max-width: 16ch; }
-    .hero-intro p { color: var(--ink-soft); font-size: 18px; margin: 0 auto 18px; }
-    .hero-intro p.serif { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 20px; color: var(--ink); }
+    /* ---------- Photo (centered moment, smaller) ---------- */
+    .figure { padding: 60px 0 0; }
+    .figure .photo { border-radius: 14px; overflow: hidden; background: var(--band); height: clamp(240px, 34vw, 400px); }
+    .figure .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .figure .cap { text-align: center; color: var(--muted); font-size: 12.5px; margin: 14px 0 0; }
 
-    /* ---------- Story sections ---------- */
-    section.block { padding: 64px 0; }
-    h2.sec { font-size: clamp(26px, 4vw, 38px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 600; margin: 10px 0 22px; }
-    .block .eyebrow { margin-bottom: 4px; }
-    p.body { color: var(--ink-soft); margin: 0 0 18px; }
-    p.body strong { color: var(--ink); font-weight: 600; }
+    /* ---------- Quote moment ---------- */
+    .quote-moment { text-align: center; padding: 64px 0 72px; border-bottom: 1px solid var(--line); }
+    .quote-moment .q { font-size: clamp(26px, 4.4vw, 42px); line-height: 1.3; letter-spacing: -0.01em; max-width: 22ch; margin: 0 auto 16px; }
+    .quote-moment .by { font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 
-    /* divider */
-    .rule { max-width: 660px; margin: 0 auto; height: 1px; background: var(--line); }
+    /* ---------- Section (one17 header-row pattern) ---------- */
+    section.block { padding: 60px 0; border-bottom: 1px solid var(--line); }
+    .shead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 28px; }
+    .shead h2 { font-size: clamp(25px, 3.8vw, 38px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 800; margin: 8px 0 0; }
+    .sbody { margin-top: 26px; max-width: 64ch; }
+    .sbody p { color: var(--ink-soft); margin: 0 0 16px; }
+    .sbody p strong { color: var(--ink); font-weight: 600; }
 
-    /* "You are NOT" panel */
-    .panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px 34px; margin: 34px 0 0; }
-    .panel .label { font-weight: 600; margin: 0 0 6px; }
-    .notlist { list-style: none; margin: 0; padding: 0; }
-    .notlist li { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid var(--line-soft); font-weight: 500; }
-    .notlist li:first-child { border-top: 0; }
-    .notlist .no { flex: none; width: 21px; height: 21px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); display: flex; align-items: center; justify-content: center; }
-    .notlist .no svg { width: 10px; height: 10px; }
-    .express { margin: 30px 0 0; font-style: italic; font-size: clamp(22px, 3.2vw, 29px); line-height: 1.4; letter-spacing: -0.01em; }
+    /* "you are NOT" hairline list */
+    .notlist { list-style: none; margin: 28px 0 0; padding: 0; max-width: 620px; }
+    .notlist li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); font-size: clamp(17px, 2.3vw, 19px); font-weight: 500; }
+    .notlist li:last-child { border-bottom: 1px solid var(--line); }
+    .notlist .no { flex: none; font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 15px; color: var(--blue); width: 28px; }
+    .express { margin: 28px 0 0; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; letter-spacing: -0.01em; max-width: 24ch; }
+    .express .u { color: var(--blue); }
+    .reassure { font-size: clamp(19px, 2.6vw, 23px); line-height: 1.55; color: var(--ink); margin: 22px 0 0; max-width: 30ch; }
 
-    .reassure { font-style: italic; font-size: clamp(19px, 2.6vw, 23px); line-height: 1.55; color: var(--ink); margin: 22px 0 0; }
-
-    /* ---------- Closing ---------- */
-    .closing { text-align: center; padding: 24px 0 104px; }
-    .closing .quote { font-style: italic; font-size: clamp(27px, 4.6vw, 46px); line-height: 1.22; letter-spacing: -0.015em; max-width: 17ch; margin: 16px auto 14px; }
-    .closing .sign { font-style: italic; color: var(--muted); font-size: 18px; margin: 0 0 30px; }
-    .closing p.lead { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 30px; }
-    .closing .meta { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    /* ---------- Final CTA band ---------- */
+    .cta-band { background: var(--band); border-bottom: 1px solid var(--band-line); }
+    .cta-inner { text-align: center; padding: 76px 0 80px; }
+    .cta-inner .eyebrow { margin-bottom: 14px; }
+    .cta-inner p.lead { color: var(--ink-soft); max-width: 48ch; margin: 0 auto 28px; font-size: 18px; }
+    .cta-inner .meta { margin-top: 16px; font-size: 13px; color: var(--muted); }
 
     /* ---------- Footer ---------- */
-    footer { border-top: 1px solid var(--line); padding: 46px 0 56px; }
+    footer { padding: 46px 0 56px; }
     .foot-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap; }
-    .foot-brand { font-weight: 600; }
+    .foot-brand { font-weight: 800; letter-spacing: -0.01em; }
     .foot-brand .sub { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; max-width: 34ch; margin-top: 8px; line-height: 1.55; }
     .foot-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
     .foot-links a:hover { color: var(--ink); }
-    .foot-fine { margin-top: 28px; font-size: 12.5px; color: var(--muted); max-width: 80ch; line-height: 1.6; }
+    .foot-fine { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); max-width: 82ch; line-height: 1.6; }
 
-    @media (max-width: 600px) {
-      .hero-intro { padding: 44px 0 4px; }
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 22px; align-items: start; padding: 44px 0; }
+      .shead { grid-template-columns: 1fr; gap: 14px; }
+      .shead .link { justify-self: start; }
       section.block { padding: 48px 0; }
-      .panel { padding: 26px 22px; }
+      .quote-moment { padding: 50px 0 56px; }
+      .cta-inner { padding: 58px 0 62px; }
     }
   </style>
 </head>
@@ -120,77 +127,97 @@
 
   <nav>
     <div class="wrap row">
-      <a class="brand" href="/"><span class="mark"></span> Rick&nbsp;Road</a>
-      <a class="nav-link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Add your name →</a>
+      <a class="brand" href="/">
+        <span class="tag">Rick Road Neighbors</span>
+        <span class="name">Rick Road</span>
+      </a>
+      <a class="nav-pill" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Add your name</a>
     </div>
   </nav>
 
-  <!-- Hero photo -->
-  <div class="hero-photo">
-    <img src="rickroad.jpg" alt="Homes along Rick Road on a bright, quiet morning" />
+  <!-- Hero band -->
+  <div class="hero-band">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A community effort led by your neighbors</p>
+        <h1>Exploring Natural Gas for Rick Road</h1>
+      </div>
+      <div class="hero-aside">
+        <p class="lede">Over the past several months, a group of Rick Road residents has been working with PECO to explore the possibility of bringing natural gas service to our neighborhood.</p>
+        <p class="sub serif">PECO is currently evaluating whether natural gas service can be extended to Rick Road.</p>
+        <a class="link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Add your name <span class="a">→</span></a>
+      </div>
+    </div>
   </div>
 
-  <!-- 1. Exploring Natural Gas for Rick Road -->
-  <header class="hero-intro">
-    <div class="wrap reading">
-      <p class="eyebrow">A community effort led by your neighbors</p>
-      <h1>Exploring natural gas for Rick Road.</h1>
-      <p>Over the past several months, a group of Rick Road residents has been working with PECO to explore the possibility of bringing natural gas service to our neighborhood.</p>
-      <p class="serif">PECO is currently evaluating whether natural gas service can be extended to Rick Road.</p>
+  <!-- Photo moment -->
+  <div class="wrap figure">
+    <div class="photo">
+      <img src="rickroad.jpg" alt="Homes along Rick Road on a bright, quiet morning" />
     </div>
-  </header>
+    <p class="cap">A placeholder image — we’ll swap in a photo of Rick Road.</p>
+  </div>
 
-  <div class="rule"></div>
+  <!-- Quote moment -->
+  <div class="quote-moment">
+    <div class="wrap">
+      <p class="q serif">“Together, we’re helping create more options for Rick Road.”</p>
+      <p class="by">Your neighbors on Rick Road</p>
+    </div>
+  </div>
 
-  <!-- 2. What Is Happening Right Now? -->
+  <!-- Section: What is happening right now? -->
   <section class="block">
-    <div class="wrap reading">
-      <p class="eyebrow">The next step</p>
-      <h2 class="sec">What is happening right now?</h2>
-      <p class="body">As the next step in the evaluation process, PECO is gathering <strong>non-binding applications</strong> from homeowners within the proposed project area.</p>
-      <p class="body">According to PECO, <strong>every completed application helps reduce the project’s cost</strong> and helps them evaluate the opportunity for Rick Road. So the more of us who add our names, the better it is for the whole street.</p>
-
-      <div class="panel">
-        <p class="label">Adding your name does <em>not</em> mean:</p>
-        <ul class="notlist">
-          <li><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Committing to natural gas service</li>
-          <li><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Signing a contract</li>
-          <li><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Agreeing to install anything</li>
-          <li><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Spending any money</li>
-        </ul>
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="eyebrow">The next step</p>
+          <h2>What is happening right now?</h2>
+        </div>
+        <a class="link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Add your name <span class="a">→</span></a>
       </div>
-
-      <p class="express serif">You are simply expressing interest. That’s it.</p>
+      <div class="sbody">
+        <p>As the next step in the evaluation process, PECO is gathering <strong>non-binding applications</strong> from homeowners within the proposed project area.</p>
+        <p>According to PECO, <strong>every completed application helps reduce the project’s cost</strong> and helps them evaluate the opportunity for Rick Road. The more of us who add our names, the better it is for the whole street.</p>
+        <ul class="notlist">
+          <li><span class="no">no</span> Committing to natural gas service</li>
+          <li><span class="no">no</span> Signing a contract</li>
+          <li><span class="no">no</span> Agreeing to install anything</li>
+          <li><span class="no">no</span> Spending any money</li>
+        </ul>
+        <p class="express serif">You are simply <span class="u">expressing interest.</span> That’s it.</p>
+      </div>
     </div>
   </section>
 
-  <div class="rule"></div>
-
-  <!-- 3. Not Sure You Would Ever Switch? -->
+  <!-- Section: Not sure you would ever switch? -->
   <section class="block">
-    <div class="wrap reading">
-      <p class="eyebrow">If you’re unsure</p>
-      <h2 class="sec">Not sure you would ever switch?</h2>
-      <p class="body">That’s completely okay. Even if you’re unsure whether you would ever connect to natural gas, <strong>your name still helps</strong> — it helps PECO evaluate the project and helps reduce project costs for everyone on Rick Road.</p>
-      <p class="reassure serif">It takes about five minutes, costs nothing, and doesn’t commit you to anything.</p>
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="eyebrow">If you’re unsure</p>
+          <h2>Not sure you would ever switch?</h2>
+        </div>
+        <a class="link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Add your name <span class="a">→</span></a>
+      </div>
+      <div class="sbody">
+        <p>That’s completely okay. Even if you’re unsure whether you would ever connect to natural gas, <strong>your name still helps</strong> — it helps PECO evaluate the project and helps reduce project costs for everyone on Rick Road.</p>
+        <p class="reassure serif">It takes about five minutes, costs nothing, and doesn’t commit you to anything.</p>
+      </div>
     </div>
   </section>
 
-  <div class="rule"></div>
-
-  <!-- 4. Together, We're Helping Create More Options For Rick Road -->
-  <section class="closing">
-    <div class="wrap reading">
+  <!-- Final CTA band -->
+  <div class="cta-band">
+    <div class="wrap cta-inner">
       <p class="eyebrow">A small ask from your neighbors</p>
-      <p class="quote serif">“Together, we’re helping create more options for Rick Road.”</p>
-      <p class="sign serif">— Your neighbors on Rick Road</p>
       <p class="lead">Every completed application helps PECO evaluate the opportunity and helps reduce project costs for our neighborhood. If you have five minutes, we’d be grateful if you added your name.</p>
       <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">
         Complete the non-binding PECO application <span class="a" aria-hidden="true">→</span>
       </a>
       <p class="meta">Opens PECO’s official Microsoft Forms application in a new tab</p>
     </div>
-  </section>
+  </div>
 
   <footer>
     <div class="wrap">
