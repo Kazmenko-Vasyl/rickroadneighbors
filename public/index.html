@@ -20,32 +20,34 @@
       property="og:image"
       content="https://rickroadneighbors.com/energy.png"
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f3f2ef" />
 
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11.5 12 4l9 7.5'/><path d='M5 10v9h14v-9'/><path d='M10 19v-5h4v5'/></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23fa5c40'/><path d='M5 13 12 7l7 6v5H5z' fill='none' stroke='white' stroke-width='1.7' stroke-linejoin='round'/></svg>"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --bg: #ffffff;
-        --ink: #12161c;
-        --ink-soft: #4f565f;
-        --muted: #8b919a;
-        --line: #e7e9ed;
-        --blue: #2563eb;
-        --green: #1f9d57;
-        --yellow-bg: #fdeae0; /* soft light-orange off-white (from #FA5C40) */
-        --blue-bg: #eef3fc;
+        --bg: #f3f2ef; /* warm off-white base */
+        --surface: #ffffff;
+        --ink: #15140f;
+        --ink-soft: #56534b;
+        --muted: #8d8980;
+        --line: #e4e2db;
+        --accent: #fa5c40; /* coral */
+        --accent-ink: #df4426;
+        --accent-soft: #fdeae3; /* coral tint (check circles only) */
+        --band: #eae8e2; /* neutral light stone band */
         --col: 660px;
+        --display: "Space Grotesk", "Inter", sans-serif;
       }
       * {
         box-sizing: border-box;
@@ -58,10 +60,10 @@
         margin: 0;
         background: var(--bg);
         color: var(--ink);
-        font-family:
-          "Carlito", Calibri, "Segoe UI", system-ui, Arial, sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
         font-size: 18px;
-        line-height: 1.7;
+        line-height: 1.65;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         overflow-x: hidden;
@@ -80,21 +82,32 @@
         font-weight: 700;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--muted);
+        color: var(--accent);
         margin: 0 0 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 2px;
+        background: var(--accent);
       }
 
+      /* pill buttons (Lightship style) */
       .btn {
         display: inline-block;
         max-width: 100%;
         background: var(--ink);
         color: #fff;
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 16px;
         line-height: 1.35;
-        padding: 15px 24px;
-        border-radius: 10px;
+        padding: 15px 26px;
+        border-radius: 999px;
         transition:
           background 0.18s ease,
           transform 0.08s ease;
@@ -122,7 +135,7 @@
         position: sticky;
         top: 0;
         z-index: 50;
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(243, 242, 239, 0.86);
         backdrop-filter: saturate(180%) blur(10px);
         border-bottom: 1px solid var(--line);
       }
@@ -138,12 +151,26 @@
       }
       .brand {
         display: flex;
-        flex-direction: column;
-        line-height: 1.12;
+        align-items: center;
+        gap: 10px;
         text-decoration: none;
         min-width: 0;
       }
+      .brand .logo {
+        flex: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: var(--accent);
+      }
+      .brand .btext {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        min-width: 0;
+      }
       .brand .bname {
+        font-family: var(--display);
         font-weight: 700;
         letter-spacing: -0.02em;
         font-size: 16px;
@@ -155,7 +182,7 @@
         display: none;
       }
       .brand .bloc {
-        font-size: 11px;
+        font-size: 10.5px;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -167,10 +194,10 @@
         background: var(--ink);
         color: #fff;
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 600;
         text-decoration: none;
-        padding: 9px 16px;
-        border-radius: 8px;
+        padding: 9px 18px;
+        border-radius: 999px;
         white-space: nowrap;
       }
       .nav-btn:hover {
@@ -180,12 +207,12 @@
         display: none;
       }
 
-      /* hero — most important info, faded gas photo backdrop */
+      /* hero — faded gas photo backdrop */
       .hero {
         position: relative;
         overflow: hidden;
         border-bottom: 1px solid var(--line);
-        padding: 80px 0 92px;
+        padding: 84px 0 96px;
       }
       .hero .bg {
         position: absolute;
@@ -200,9 +227,9 @@
         z-index: 0;
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.82) 0%,
-          rgba(255, 255, 255, 0.34) 48%,
-          rgba(255, 255, 255, 0.6) 100%
+          rgba(243, 242, 239, 0.84) 0%,
+          rgba(243, 242, 239, 0.36) 48%,
+          rgba(243, 242, 239, 0.66) 100%
         );
       }
       .hero .col {
@@ -210,39 +237,42 @@
         z-index: 1;
       }
       h1 {
-        font-size: clamp(36px, 6vw, 58px);
-        line-height: 1.05;
-        letter-spacing: -0.035em;
+        font-family: var(--display);
+        font-size: clamp(38px, 6.4vw, 64px);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
         font-weight: 700;
         margin: 0 0 22px;
       }
       .hero p {
-        color: #3a4047;
+        color: #34322c;
         margin: 0 0 18px;
       }
 
       /* sections + alternating bands */
       section {
-        padding: 60px 0;
+        padding: 64px 0;
       }
       .bg-yellow {
-        background: var(--yellow-bg);
-      }
+        background: var(--surface);
+      } /* clean white band */
       .bg-blue {
-        background: var(--blue-bg);
-      }
+        background: var(--band);
+      } /* neutral light stone band */
       h2 {
-        font-size: clamp(26px, 4vw, 34px);
-        line-height: 1.14;
-        letter-spacing: -0.03em;
+        font-family: var(--display);
+        font-size: clamp(28px, 4.4vw, 40px);
+        line-height: 1.08;
+        letter-spacing: -0.035em;
         font-weight: 700;
         margin: 0 0 20px;
       }
       h3 {
-        font-size: 21px;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        margin: 34px 0 12px;
+        font-family: var(--display);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 36px 0 12px;
       }
       section p {
         color: var(--ink-soft);
@@ -250,7 +280,7 @@
       }
       section p.ink {
         color: var(--ink);
-        font-weight: 700;
+        font-weight: 600;
       }
 
       /* "you are not" list */
@@ -282,20 +312,21 @@
         font-weight: 700;
       }
       .express {
-        font-size: clamp(22px, 3.2vw, 28px);
-        line-height: 1.35;
-        letter-spacing: -0.01em;
+        font-family: var(--display);
+        font-size: clamp(24px, 3.4vw, 32px);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
         color: var(--ink);
         font-weight: 700;
-        margin: 26px 0 0;
+        margin: 28px 0 0;
       }
       .thatsit {
         color: var(--muted);
         font-size: 18px;
-        margin: 6px 0 0;
+        margin: 8px 0 0;
       }
 
-      /* checklist (Ready To Help) */
+      /* checklist */
       .checks {
         list-style: none;
         padding: 0;
@@ -304,39 +335,39 @@
       .checks li {
         display: flex;
         align-items: center;
-        gap: 13px;
-        padding: 10px 0;
-        font-weight: 700;
+        gap: 14px;
+        padding: 11px 0;
+        font-weight: 600;
         color: var(--ink);
         font-size: 18px;
       }
       .checks .ck {
         flex: none;
-        width: 24px;
-        height: 24px;
+        width: 26px;
+        height: 26px;
         border-radius: 999px;
-        background: #e4f3ea;
-        color: var(--green);
+        background: var(--accent-soft);
+        color: var(--accent);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
       }
 
-      /* callout (gift card note) */
+      /* callout (gift card) */
       .callout {
         display: flex;
-        gap: 13px;
+        gap: 14px;
         align-items: flex-start;
-        background: #fff;
+        background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 16px 18px;
-        margin: 24px 0 0;
+        border-left: 4px solid var(--accent);
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin: 26px 0 0;
         font-weight: 500;
         color: var(--ink);
-        box-shadow: 0 1px 3px rgba(20, 30, 50, 0.04);
       }
       .callout .emoji {
         font-size: 22px;
@@ -350,20 +381,22 @@
         text-align: center;
       }
       .statbig b {
+        font-family: var(--display);
         display: block;
-        font-size: clamp(44px, 10vw, 68px);
+        font-size: clamp(48px, 11vw, 76px);
         font-weight: 700;
-        letter-spacing: -0.035em;
+        letter-spacing: -0.04em;
         line-height: 1;
-        color: var(--ink);
+        color: var(--accent);
       }
       .statbig span {
         display: block;
-        margin-top: 8px;
-        font-size: 13px;
+        margin-top: 10px;
+        font-size: 12px;
         color: var(--muted);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.12em;
+        font-weight: 600;
       }
 
       /* steps */
@@ -383,22 +416,24 @@
       }
       .steps .num {
         flex: none;
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         border-radius: 999px;
         background: var(--ink);
         color: #fff;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: var(--display);
         font-weight: 700;
         font-size: 15px;
         margin-top: 2px;
       }
       .steps h4 {
-        margin: 0 0 4px;
+        font-family: var(--display);
+        margin: 2px 0 4px;
         font-size: 17px;
-        font-weight: 700;
+        font-weight: 600;
       }
       .steps p {
         margin: 0 0 6px;
@@ -407,25 +442,32 @@
         margin-bottom: 0;
       }
       .steps a {
-        color: var(--blue);
+        color: var(--accent);
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
       }
       .steps a:hover {
         text-decoration: underline;
       }
 
-      /* deadline */
+      /* deadline badge */
       .deadline {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         margin-top: 8px;
-        background: var(--ink);
+        background: var(--accent);
         color: #fff;
+        font-family: var(--display);
         font-weight: 700;
         font-size: clamp(20px, 4vw, 26px);
         padding: 12px 22px;
-        border-radius: 12px;
-        letter-spacing: -0.01em;
+        border-radius: 999px;
+        letter-spacing: -0.02em;
+      }
+      .deadline svg {
+        width: 22px;
+        height: 22px;
       }
 
       /* rebates */
@@ -451,25 +493,13 @@
         width: 7px;
         height: 7px;
         border-radius: 999px;
-        background: var(--blue);
+        background: var(--accent);
       }
       .rebates li b {
         font-weight: 700;
       }
 
-      /* placeholder box */
-      .placeholder {
-        border: 1.5px dashed #cfc8bb;
-        border-radius: 14px;
-        padding: 26px;
-        text-align: center;
-        color: var(--muted);
-        margin-top: 16px;
-        background: rgba(255, 255, 255, 0.55);
-        font-size: 15px;
-      }
-
-      /* PECO rebate flyer (native image content block) */
+      /* rebate flyer image */
       .flyer {
         margin-top: 18px;
       }
@@ -478,7 +508,7 @@
         height: auto;
         display: block;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 14px;
       }
       .flyer-link {
         display: inline-flex;
@@ -486,8 +516,8 @@
         gap: 5px;
         margin-top: 12px;
         font-size: 14px;
-        font-weight: 700;
-        color: var(--blue);
+        font-weight: 600;
+        color: var(--accent);
         text-decoration: none;
         text-underline-offset: 4px;
       }
@@ -502,15 +532,16 @@
         margin-top: 20px;
       }
       .contact {
-        background: #fff;
+        background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 14px;
+        border-radius: 16px;
         padding: 18px 20px;
-        box-shadow: 0 1px 3px rgba(20, 30, 50, 0.04);
       }
       .contact b {
+        font-family: var(--display);
         display: block;
         font-size: 17px;
+        font-weight: 600;
       }
       .contact .role {
         color: var(--muted);
@@ -518,27 +549,38 @@
         margin: 2px 0 10px;
       }
       .contact a {
-        display: block;
-        color: var(--blue);
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--accent);
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 15.5px;
         line-height: 2;
+        margin-right: 18px;
       }
       .contact a:hover {
         text-decoration: underline;
+      }
+      .contact a svg {
+        width: 16px;
+        height: 16px;
+        flex: none;
+        color: var(--muted);
       }
 
       /* footer */
       footer {
         border-top: 1px solid var(--line);
-        padding: 40px 0 56px;
+        padding: 42px 0 56px;
       }
       .foot-brand {
+        font-family: var(--display);
         font-weight: 700;
       }
       .foot-brand .sub {
         display: block;
+        font-family: "Inter", sans-serif;
         font-weight: 400;
         color: var(--muted);
         font-size: 14px;
@@ -554,15 +596,14 @@
 
       @media (max-width: 600px) {
         .hero {
-          padding: 52px 0 60px;
+          padding: 54px 0 62px;
         }
         section {
-          padding: 44px 0;
+          padding: 46px 0;
         }
         .nav-btn {
           font-size: 13px;
-          padding: 8px 13px;
-          border-radius: 8px;
+          padding: 8px 14px;
         }
         .nav-btn .long {
           display: none;
@@ -584,11 +625,7 @@
         }
         .btn {
           font-size: 15px;
-          padding: 13px 18px;
-          border-radius: 9px;
-        }
-        h1 {
-          font-size: 33px;
+          padding: 13px 22px;
         }
       }
     </style>
@@ -597,11 +634,14 @@
     <nav>
       <div class="row">
         <a class="brand" href="/">
-          <span class="bname"
-            ><span class="b-long">Rick Road Neighborhood</span
-            ><span class="b-short">Rick Road</span></span
-          >
-          <span class="bloc">Southampton, PA</span>
+          <span class="logo" aria-hidden="true"></span>
+          <span class="btext">
+            <span class="bname"
+              ><span class="b-long">Rick Road Neighborhood</span
+              ><span class="b-short">Rick Road</span></span
+            >
+            <span class="bloc">Southampton, PA</span>
+          </span>
         </a>
         <a
           class="nav-btn"
@@ -643,7 +683,7 @@
       </div>
     </header>
 
-    <!-- WHAT IS HAPPENING (white) -->
+    <!-- WHAT IS HAPPENING -->
     <section>
       <div class="col">
         <h2>What Is Happening Right Now?</h2>
@@ -669,7 +709,7 @@
       </div>
     </section>
 
-    <!-- READY TO HELP (yellow) -->
+    <!-- READY TO HELP -->
     <section class="bg-yellow">
       <div class="col">
         <h2>Ready To Help?</h2>
@@ -701,7 +741,7 @@
       </div>
     </section>
 
-    <!-- HOW DOES MY APPLICATION HELP (white) -->
+    <!-- HOW DOES MY APPLICATION HELP -->
     <section>
       <div class="col">
         <h2>How Does My Application Help?</h2>
@@ -739,7 +779,7 @@
       </div>
     </section>
 
-    <!-- NOT SURE YOU WOULD EVER SWITCH (blue) -->
+    <!-- NOT SURE YOU WOULD EVER SWITCH -->
     <section class="bg-blue">
       <div class="col">
         <h2>Not Sure You Would Ever Switch?</h2>
@@ -760,7 +800,7 @@
       </div>
     </section>
 
-    <!-- NEIGHBORHOOD UPDATE (white) -->
+    <!-- NEIGHBORHOOD UPDATE -->
     <section>
       <div class="col">
         <h2>Neighborhood Update</h2>
@@ -780,11 +820,24 @@
           PECO has currently extended the non-binding application period
           through:
         </p>
-        <span class="deadline">June 30, 2026</span>
+        <span class="deadline">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          June 30, 2026
+        </span>
       </div>
     </section>
 
-    <!-- A SMALL THANK YOU (yellow) -->
+    <!-- A SMALL THANK YOU -->
     <section class="bg-yellow">
       <div class="col">
         <h2>🎁 A Small Thank You From Your Neighbors</h2>
@@ -836,7 +889,7 @@
       </div>
     </section>
 
-    <!-- POTENTIAL REBATES & SAVINGS (white) -->
+    <!-- POTENTIAL REBATES & SAVINGS -->
     <section>
       <div class="col">
         <h2>Potential Rebates &amp; Savings</h2>
@@ -885,7 +938,7 @@
       </div>
     </section>
 
-    <!-- QUESTIONS (blue) -->
+    <!-- QUESTIONS -->
     <section class="bg-blue">
       <div class="col">
         <h2>Questions?</h2>
@@ -897,29 +950,40 @@
           <div class="contact">
             <b>Shannon Wright</b>
             <div class="role">PECO</div>
-            <a href="tel:+12675331339">267-533-1339</a>
-            <a href="mailto:Shannon.Wright@exeloncorp.com"
-              >Shannon.Wright@exeloncorp.com</a
+            <a href="tel:+12675331339">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              267-533-1339</a
+            >
+            <a href="mailto:Shannon.Wright@exeloncorp.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              Shannon.Wright@exeloncorp.com</a
             >
           </div>
           <div class="contact">
             <b>PECO Natural Gas Pilot Team</b>
             <div class="role">PECO</div>
-            <a href="tel:+12158414006">215-841-4006</a>
-            <a href="mailto:naturalgas@peco.com">naturalgas@peco.com</a>
+            <a href="tel:+12158414006">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              215-841-4006</a
+            >
+            <a href="mailto:naturalgas@peco.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              naturalgas@peco.com</a
+            >
           </div>
           <div class="contact">
             <b>Rick Road Neighbors</b>
             <div class="role">Your neighbors</div>
-            <a href="mailto:rickroadneighbors@proton.me"
-              >rickroadneighbors@proton.me</a
+            <a href="mailto:rickroadneighbors@proton.me">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              rickroadneighbors@proton.me</a
             >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TOGETHER / CLOSING (white) -->
+    <!-- TOGETHER / CLOSING -->
     <section>
       <div class="col">
         <h2>Together, We’re Helping Create More Options for Rick Road</h2>
