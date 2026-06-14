@@ -60,8 +60,13 @@
         margin: 0;
         background: var(--bg);
         color: var(--ink);
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
         font-size: 18px;
         line-height: 1.65;
         -webkit-font-smoothing: antialiased;
@@ -244,9 +249,31 @@
         font-weight: 700;
         margin: 0 0 22px;
       }
+      .hero h1 {
+        font-size: clamp(22px, 3.8vw, 30px);
+        margin: 0 0 18px;
+      }
       .hero p {
         color: #34322c;
         margin: 0 0 18px;
+      }
+      .hero .hero-headline {
+        font-family: var(--display);
+        font-size: clamp(30px, 5.4vw, 48px);
+        font-weight: 700;
+        line-height: 1.07;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        margin: 30px 0 0;
+      }
+      .hero-headline .sq {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background: var(--accent);
+        margin-right: 14px;
+        vertical-align: middle;
       }
 
       /* sections + alternating bands */
@@ -658,7 +685,6 @@
       <div class="bg" aria-hidden="true"></div>
       <div class="veil" aria-hidden="true"></div>
       <div class="col">
-        <p class="eyebrow">A Community Effort Led by Your Neighbors</p>
         <h1>Exploring Natural Gas for Rick Road</h1>
         <p>
           Over the past several months, a group of Rick Road residents has been
@@ -668,6 +694,10 @@
         <p>
           PECO is currently evaluating whether natural gas service can be
           extended to Rick Road.
+        </p>
+        <p class="hero-headline">
+          <span class="sq" aria-hidden="true"></span>A Community Effort Led by
+          Your Neighbors
         </p>
       </div>
     </header>
@@ -940,11 +970,32 @@
             <b>Shannon Wright</b>
             <div class="role">PECO</div>
             <a href="tel:+12675331339">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
               267-533-1339</a
             >
             <a href="mailto:Shannon.Wright@exeloncorp.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
               Shannon.Wright@exeloncorp.com</a
             >
           </div>
@@ -952,11 +1003,32 @@
             <b>PECO Natural Gas Pilot Team</b>
             <div class="role">PECO</div>
             <a href="tel:+12158414006">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
               215-841-4006</a
             >
             <a href="mailto:naturalgas@peco.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
               naturalgas@peco.com</a
             >
           </div>
@@ -964,7 +1036,17 @@
             <b>Rick Road Neighbors</b>
             <div class="role">Your neighbors</div>
             <a href="mailto:rickroadneighbors@proton.me">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
               rickroadneighbors@proton.me</a
             >
           </div>
