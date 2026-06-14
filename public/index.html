@@ -469,17 +469,30 @@
         font-size: 15px;
       }
 
-      /* PECO rebate flyer (native image) */
+      /* PECO rebate flyer (native image content block) */
       .flyer {
-        margin-top: 16px;
+        margin-top: 18px;
       }
       .flyer-img {
         width: 100%;
         height: auto;
         display: block;
         border: 1px solid var(--line);
-        border-radius: 14px;
-        margin-bottom: 18px;
+        border-radius: 12px;
+      }
+      .flyer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--blue);
+        text-decoration: none;
+        text-underline-offset: 4px;
+      }
+      .flyer-link:hover {
+        text-decoration: underline;
       }
 
       /* contact cards */
@@ -849,19 +862,24 @@
 
         <h3>Official PECO Rebate Information</h3>
         <div class="flyer">
-          <img
-            class="flyer-img"
-            src="peco-rebates-flyer.png"
-            alt="PECO Natural Gas Rebates 2026 — official rebate flyer"
-            loading="lazy"
-          />
           <a
-            class="btn"
             href="peco-natural-gas-rebates-2026.pdf"
             target="_blank"
             rel="noopener"
-            >Open the full rebate flyer (PDF)
-            <span class="a" aria-hidden="true">→</span></a
+          >
+            <img
+              class="flyer-img"
+              src="peco-rebates-flyer.png"
+              alt="PECO Natural Gas Rebates 2026 — official rebate flyer"
+              loading="lazy"
+            />
+          </a>
+          <a
+            class="flyer-link"
+            href="peco-natural-gas-rebates-2026.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open the full PDF <span class="a" aria-hidden="true">→</span></a
           >
         </div>
       </div>
