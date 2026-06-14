@@ -20,7 +20,7 @@
       property="og:image"
       content="https://rickroadneighbors.com/energy.png"
     />
-    <meta name="theme-color" content="#f3f2ef" />
+    <meta name="theme-color" content="#ffffff" />
 
     <link
       rel="icon"
@@ -36,7 +36,7 @@
 
     <style>
       :root {
-        --bg: #f3f2ef; /* warm off-white base */
+        --bg: #ffffff; /* white base */
         --surface: #ffffff;
         --ink: #15140f;
         --ink-soft: #56534b;
@@ -45,7 +45,7 @@
         --accent: #fa5c40; /* coral */
         --accent-ink: #df4426;
         --accent-soft: #fdeae3; /* coral tint (check circles only) */
-        --band: #eae8e2; /* neutral light stone band */
+        --band: #f4f8fd; /* very light blue band */
         --col: 660px;
         --display: "Space Grotesk", "Inter", sans-serif;
       }
@@ -135,7 +135,7 @@
         position: sticky;
         top: 0;
         z-index: 50;
-        background: rgba(243, 242, 239, 0.86);
+        background: rgba(255, 255, 255, 0.86);
         backdrop-filter: saturate(180%) blur(10px);
         border-bottom: 1px solid var(--line);
       }
@@ -227,9 +227,9 @@
         z-index: 0;
         background: linear-gradient(
           180deg,
-          rgba(243, 242, 239, 0.84) 0%,
-          rgba(243, 242, 239, 0.36) 48%,
-          rgba(243, 242, 239, 0.66) 100%
+          rgba(255, 255, 255, 0.84) 0%,
+          rgba(255, 255, 255, 0.36) 48%,
+          rgba(255, 255, 255, 0.66) 100%
         );
       }
       .hero .col {
@@ -252,13 +252,12 @@
       /* sections + alternating bands */
       section {
         padding: 64px 0;
-      }
-      .bg-yellow {
         background: var(--surface);
-      } /* clean white band */
+      } /* default sections are white */
+      .bg-yellow,
       .bg-blue {
         background: var(--band);
-      } /* neutral light stone band */
+      } /* alternating light gray band */
       h2 {
         font-family: var(--display);
         font-size: clamp(28px, 4.4vw, 40px);
