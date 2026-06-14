@@ -12,7 +12,7 @@ fs.mkdirSync(outDir, { recursive: true });
 const opts = {
   errorCorrectionLevel: "M", // good balance; survives small print smudges
   margin: 2,
-  color: { dark: "#0b3d4f", light: "#ffffff" }, // matches site teal
+  color: { dark: "#12161c", light: "#ffffff" }, // near-black for reliable scanning
 };
 
 (async () => {
