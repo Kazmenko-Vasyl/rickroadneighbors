@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rick Road Neighbors — Bring Natural Gas to Our Street</title>
-  <meta name="description" content="Neighbors on Rick Road are working with PECO to bring natural gas to our street. Add your name with a free, 5-minute, non-binding application. No cost, no commitment." />
+  <title>Exploring Natural Gas for Rick Road</title>
+  <meta name="description" content="A community effort led by your neighbors. Rick Road residents are working with PECO to explore bringing natural gas to our neighborhood. Complete the free, non-binding application — about five minutes, no commitment." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Bring Natural Gas to Rick Road" />
-  <meta property="og:description" content="Add your name with a free, 5-minute, non-binding PECO application. No cost, no commitment." />
+  <meta property="og:title" content="Exploring Natural Gas for Rick Road" />
+  <meta property="og:description" content="A community effort led by your neighbors. Complete the free, non-binding PECO application — about five minutes, no commitment." />
   <meta property="og:url" content="https://rickroadneighbors.com" />
   <meta property="og:image" content="https://rickroadneighbors.com/img/neighborhood.jpg" />
   <meta name="theme-color" content="#ffffff" />
@@ -22,15 +22,16 @@
   <style>
     :root {
       --ink: #1b1d22;
-      --ink-soft: #515861;
+      --ink-soft: #4d535c;
       --muted: #8a909a;
       --line: #e7eaee;
       --bg: #ffffff;
-      --soft: #f4f7fb;       /* zillow-ish soft blue-grey */
+      --soft: #f4f7fb;
       --blue: #1668ff;
       --blue-deep: #0a4fd6;
       --blue-tint: #eaf1ff;
       --green: #1f9d57;
+      --green-tint: #e8f7ee;
       --shadow: 0 10px 30px rgba(20,30,50,0.10);
       --shadow-sm: 0 4px 14px rgba(20,30,50,0.07);
       --max: 1120px;
@@ -40,10 +41,26 @@
     body {
       margin: 0; background: var(--bg); color: var(--ink);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 720px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--blue); color: #fff; text-decoration: none;
+      font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 10px;
+      transition: background .15s ease, transform .08s ease; box-shadow: var(--shadow-sm);
+    }
+    .btn:hover { background: var(--blue-deep); }
+    .btn:active { transform: translateY(1px); }
+    .btn.lg { font-size: 16.5px; padding: 16px 26px; border-radius: 12px; }
+    .btn .a { transition: transform .18s ease; }
+    .btn:hover .a { transform: translateX(3px); }
+    .btn.white { background: #fff; color: var(--blue-deep); }
+    .btn.white:hover { background: #eef3ff; }
 
     /* ---------- Nav ---------- */
     nav {
@@ -54,89 +71,65 @@
     nav .row { display: flex; align-items: center; justify-content: space-between; height: 66px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; text-decoration: none; }
     .brand svg { width: 26px; height: 26px; color: var(--blue); }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--blue); color: #fff; text-decoration: none;
-      font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 10px;
-      transition: background .15s ease, transform .08s ease, box-shadow .15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .btn:hover { background: var(--blue-deep); }
-    .btn:active { transform: translateY(1px); }
-    .btn.lg { font-size: 17px; padding: 16px 28px; border-radius: 12px; }
-    .btn .a { transition: transform .18s ease; }
-    .btn:hover .a { transform: translateX(3px); }
+    .nav-btn { font-size: 14px; padding: 10px 16px; }
+    .nav-btn .full { display: inline; }
+    @media (max-width: 560px) { .nav-btn .full { display: none; } }
 
     /* ---------- Hero ---------- */
-    .hero-photo {
-      position: relative; width: 100%; height: clamp(340px, 52vw, 540px); overflow: hidden;
-      background: var(--soft);
-    }
+    .hero-photo { position: relative; width: 100%; height: clamp(320px, 50vw, 520px); overflow: hidden; background: var(--soft); }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-photo::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.05) 100%);
-    }
+    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0) 32%); }
     .hero-card {
-      position: relative; z-index: 2;
-      background: #fff; border-radius: 18px; box-shadow: var(--shadow);
-      max-width: 560px; padding: 34px 34px 32px;
-      margin: -118px 0 0; /* overlap the photo, zillow-style */
+      position: relative; z-index: 2; background: #fff; border-radius: 18px; box-shadow: var(--shadow);
+      max-width: 620px; padding: 34px 34px 32px; margin: -120px 0 0;
     }
     .pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--blue-tint); color: var(--blue-deep);
-      font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 7px; background: var(--blue-tint); color: var(--blue-deep);
+      font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
       padding: 6px 12px; border-radius: 999px;
     }
-    .hero-card h1 {
-      font-size: clamp(30px, 5vw, 46px); line-height: 1.07; letter-spacing: -0.03em;
-      font-weight: 800; margin: 16px 0 12px;
-    }
-    .hero-card p.lead { margin: 0 0 24px; color: var(--ink-soft); font-size: 17.5px; }
-    .hero-card p.lead b { color: var(--ink); font-weight: 700; }
+    .hero-card h1 { font-size: clamp(28px, 4.6vw, 44px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; margin: 15px 0 6px; }
+    .hero-card .subtitle { font-size: 16px; font-weight: 700; color: var(--blue-deep); margin: 0 0 16px; }
+    .hero-card p { margin: 0 0 14px; color: var(--ink-soft); font-size: 16.5px; }
+    .hero-card .btn { margin-top: 10px; }
     .under { margin: 14px 0 0; font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 7px; }
     .under svg { width: 15px; height: 15px; color: var(--green); }
 
-    /* ---------- Clarity cards (what / why / commitment) ---------- */
-    .section { padding: 64px 0; }
-    .sec-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
-    .sec-head .pill { margin-bottom: 14px; }
-    .sec-head h2 { font-size: clamp(26px, 4vw, 38px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 800; margin: 0 0 12px; }
-    .sec-head p { color: var(--ink-soft); margin: 0; }
-
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card {
-      background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px;
-      transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
-    }
-    .card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: #dbe2ec; }
-    .card .ico {
-      width: 46px; height: 46px; border-radius: 12px; background: var(--blue-tint);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-    }
-    .card .ico svg { width: 24px; height: 24px; color: var(--blue); }
-    .card h3 { font-size: 19px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
-    .card p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
-
-    /* ---------- Stats strip ---------- */
+    /* ---------- Content sections ---------- */
+    .section { padding: 60px 0; }
     .strip { background: var(--soft); }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 44px 0; }
-    .stat { text-align: center; }
-    .stat b { display: block; font-size: clamp(32px, 5vw, 46px); font-weight: 800; letter-spacing: -0.03em; color: var(--blue); }
-    .stat span { font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+    h2.sec { font-size: clamp(24px, 3.6vw, 34px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 800; margin: 14px 0 18px; }
+    .section p.body { color: var(--ink-soft); margin: 0 0 16px; }
+    .section p.body strong { color: var(--ink); font-weight: 700; }
 
-    /* ---------- Final CTA ---------- */
-    .cta-band {
-      background: linear-gradient(135deg, #123b86 0%, #1668ff 100%);
-      color: #fff; border-radius: 22px; text-align: center;
-      padding: 56px 28px; margin: 64px 0;
-      box-shadow: var(--shadow);
+    /* "You are NOT" list */
+    .notbox { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px 24px 8px; margin: 26px 0 0; box-shadow: var(--shadow-sm); }
+    .notbox .label { font-weight: 700; margin: 0 0 6px; color: var(--ink); }
+    .notbox ul { list-style: none; margin: 0; padding: 0; }
+    .notbox li { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 1px solid var(--line); color: var(--ink); font-weight: 500; }
+    .notbox li:first-of-type { border-top: 0; }
+    .xmark { flex: none; width: 24px; height: 24px; border-radius: 999px; background: #fdecec; color: #d23b3b; display: flex; align-items: center; justify-content: center; }
+    .xmark svg { width: 13px; height: 13px; }
+    .express {
+      display: flex; align-items: center; gap: 12px; margin-top: 20px;
+      background: var(--green-tint); border: 1px solid #cdebd8; border-radius: 14px;
+      padding: 18px 20px; font-size: clamp(17px, 2.6vw, 21px); font-weight: 700; color: #14502f; letter-spacing: -0.01em;
     }
-    .cta-band h2 { font-size: clamp(26px, 4.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 800; margin: 0 auto 12px; max-width: 18ch; }
-    .cta-band p { color: #d6e4ff; margin: 0 auto 28px; max-width: 44ch; }
-    .btn.white { background: #fff; color: var(--blue-deep); }
-    .btn.white:hover { background: #f0f4ff; }
+    .express .ok { flex: none; width: 28px; height: 28px; border-radius: 999px; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .express .ok svg { width: 16px; height: 16px; }
+
+    /* stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0 14px; }
+    .stat { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px 16px; box-shadow: var(--shadow-sm); }
+    .stat b { display: block; font-size: clamp(28px, 4.4vw, 40px); font-weight: 800; letter-spacing: -0.03em; color: var(--blue); }
+    .stat span { font-size: 13.5px; color: var(--ink-soft); font-weight: 500; }
+    .stat-note { color: var(--muted); font-size: 14.5px; margin: 4px 0 0; }
+
+    /* ---------- Final CTA band ---------- */
+    .cta-band { background: linear-gradient(135deg, #123b86 0%, #1668ff 100%); color: #fff; border-radius: 22px; text-align: center; padding: 56px 28px; margin: 60px 0; box-shadow: var(--shadow); }
+    .cta-band .pill { background: rgba(255,255,255,0.16); color: #fff; }
+    .cta-band h2 { font-size: clamp(25px, 4.2vw, 38px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 800; margin: 14px auto 14px; max-width: 20ch; }
+    .cta-band p { color: #d6e4ff; margin: 0 auto 28px; max-width: 50ch; }
     .cta-band .meta { margin-top: 16px; font-size: 13px; color: #bcd0ff; }
 
     /* ---------- Footer ---------- */
@@ -149,13 +142,9 @@
     .foot-links a:hover { color: var(--ink); }
     .foot-fine { margin-top: 26px; font-size: 12.5px; color: var(--muted); max-width: 78ch; line-height: 1.6; }
 
-    @media (max-width: 820px) {
-      .cards { grid-template-columns: 1fr; }
-      .hero-card { margin-top: -90px; padding: 26px 22px; }
-    }
-    @media (max-width: 560px) {
-      .stats { grid-template-columns: 1fr; gap: 24px; }
-      .hero-card { margin: -70px 4px 0; }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; }
+      .hero-card { margin: -84px 2px 0; padding: 26px 22px; }
     }
   </style>
 </head>
@@ -167,7 +156,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg>
         Rick Road
       </a>
-      <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Apply now <span class="a" aria-hidden="true">→</span></a>
+      <a class="btn nav-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Apply<span class="full">&nbsp;now</span> <span class="a" aria-hidden="true">→</span></a>
     </div>
   </nav>
 
@@ -176,13 +165,17 @@
     <img src="img/neighborhood.jpg" alt="A quiet, tree-lined residential street on Rick Road" />
   </div>
 
-  <!-- Overlapping hero card (Zillow-style) -->
+  <!-- 1. Exploring Natural Gas for Rick Road -->
   <div class="wrap">
     <div class="hero-card">
-      <span class="pill">🏡 Rick Road Neighborhood</span>
-      <h1>Help bring natural gas to Rick&nbsp;Road.</h1>
-      <p class="lead">Your neighbors are working with <b>PECO</b> to bring natural gas service to our street. You can help by adding your name — it takes about <b>five minutes</b> and commits you to <b>nothing</b>.</p>
-      <a class="btn lg" href="#apply">Complete the application <span class="a" aria-hidden="true">→</span></a>
+      <span class="pill">🏡 Rick Road</span>
+      <h1>Exploring Natural Gas for Rick Road</h1>
+      <p class="subtitle">A Community Effort Led by Your Neighbors</p>
+      <p>Over the past several months, a group of Rick Road residents has been working with <strong>PECO</strong> to explore the possibility of bringing natural gas service to our neighborhood.</p>
+      <p>PECO is currently evaluating whether natural gas service can be extended to Rick Road.</p>
+      <a class="btn lg" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">
+        Complete the Non-Binding PECO Application <span class="a" aria-hidden="true">→</span>
+      </a>
       <p class="under">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         Free · Non-binding · No contract and no cost
@@ -190,54 +183,57 @@
     </div>
   </div>
 
-  <!-- What / Why / Commitment -->
+  <!-- 2. What Is Happening Right Now? -->
   <section class="section">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="pill">In plain terms</span>
-        <h2>Here’s exactly what you’re doing.</h2>
-        <p>No fine print. Adding your name simply tells PECO that Rick Road is interested.</p>
+    <div class="wrap narrow">
+      <span class="pill">The next step</span>
+      <h2 class="sec">What Is Happening Right Now?</h2>
+      <p class="body">As the next step in the evaluation process, PECO is gathering <strong>non-binding applications</strong> from homeowners within the proposed project area.</p>
+      <p class="body">According to PECO, <strong>every completed non-binding application helps reduce the project’s cost</strong> and helps PECO evaluate the opportunity for Rick Road.</p>
+
+      <div class="notbox">
+        <p class="label">By applying, you are <em>not</em>:</p>
+        <ul>
+          <li><span class="xmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Committing to natural gas service</li>
+          <li><span class="xmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Signing a contract</li>
+          <li><span class="xmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Agreeing to install anything</li>
+          <li><span class="xmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span> Spending any money</li>
+        </ul>
       </div>
 
-      <div class="cards">
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-          <h3>What it is</h3>
-          <p>A short, <b>non-binding application</b> to PECO that says you’re interested in natural gas on Rick Road.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 12.5a1 1 0 0 0 .8 1.6H11l-1 7.9 8.5-10.5a1 1 0 0 0-.8-1.6H12z"/></svg></div>
-          <h3>Why it matters</h3>
-          <p>Per PECO, <b>every application lowers the project’s cost</b> and helps them decide whether to serve our street.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
-          <h3>What you commit to</h3>
-          <p><b>Nothing.</b> No contract, no installation, no money. Even if you’d never switch, your name still helps.</p>
-        </div>
+      <div class="express">
+        <span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        You are simply expressing interest. That’s it.
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="strip">
-    <div class="wrap">
+  <!-- 3. Not Sure You Would Ever Switch? -->
+  <section class="section strip">
+    <div class="wrap narrow">
+      <span class="pill">No downside</span>
+      <h2 class="sec">Not Sure You Would Ever Switch?</h2>
+      <p class="body">According to PECO, every completed application helps reduce project costs for Rick Road and helps PECO evaluate the opportunity for our neighborhood.</p>
+      <p class="body">Even if you’re unsure whether you would ever connect to natural gas, <strong>your application still helps</strong> PECO evaluate the project and helps reduce project costs for Rick Road.</p>
+
       <div class="stats">
         <div class="stat"><b>~5 min</b><span>to complete</span></div>
-        <div class="stat"><b>$0</b><span>it costs nothing</span></div>
-        <div class="stat"><b>0</b><span>commitment</span></div>
+        <div class="stat"><b>$0</b><span>costs nothing</span></div>
+        <div class="stat"><b>None</b><span>commitment</span></div>
       </div>
+      <p class="stat-note">The application takes about five minutes, costs nothing, and does not commit you to anything.</p>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="section" id="apply" style="padding-top:24px;">
+  <!-- 4. Together, We're Helping Create More Options For Rick Road -->
+  <section class="section">
     <div class="wrap">
       <div class="cta-band">
-        <h2>Add your name to bring natural gas to Rick Road.</h2>
-        <p>It takes about five minutes, costs nothing, and commits you to nothing. Every application moves our street closer.</p>
+        <span class="pill">Together</span>
+        <h2>Together, We’re Helping Create More Options for Rick Road</h2>
+        <p>Every completed non-binding application helps PECO evaluate the opportunity and helps reduce project costs for our neighborhood.</p>
         <a class="btn white lg" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">
-          Open the application <span class="a" aria-hidden="true">→</span>
+          Complete the Non-Binding PECO Application <span class="a" aria-hidden="true">→</span>
         </a>
         <p class="meta">Opens PECO’s official Microsoft Forms application in a new tab</p>
       </div>
@@ -252,8 +248,7 @@
           Rick Road Neighbors
         </div>
         <div class="foot-links">
-          <a href="#apply">Apply</a>
-          <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">PECO form</a>
+          <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">PECO application</a>
         </div>
       </div>
       <p class="foot-fine">This site is run by Rick Road residents to share information about an ongoing natural gas feasibility effort with PECO. It is not an official PECO website. Completing the application is voluntary and non-binding. © 2026 Rick Road Neighbors.</p>
