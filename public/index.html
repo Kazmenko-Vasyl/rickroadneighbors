@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://rickroadneighbors.com/energy.png" />
   <meta name="theme-color" content="#ffffff" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11.5 12 4l9 7.5'/><path d='M5 10v9h14v-9'/><path d='M10 19v-5h4v5'/></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,18 +50,20 @@
     /* nav */
     nav { border-bottom: 1px solid var(--line); }
     nav .row { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-weight: 800; letter-spacing: -0.02em; font-size: 17px; text-decoration: none; }
+    .brand { display: flex; flex-direction: column; line-height: 1.12; text-decoration: none; }
+    .brand .bname { font-weight: 800; letter-spacing: -0.02em; font-size: 16px; }
+    .brand .bloc { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
     .nav-btn { background: var(--ink); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; padding: 9px 16px; border-radius: 8px; }
     .nav-btn:hover { background: #000; }
 
     /* header / hero — most important info first, photo as faded backdrop */
     .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); padding: 84px 0 96px; }
     .hero .bg { position: absolute; inset: 0; z-index: 0;
-      background: url("energy.png") center 55% / cover no-repeat;
-      opacity: 0.22; filter: saturate(0.92); }
-    /* keep the title area crisp, let the image breathe lower down */
+      background: url("energy.png") center 52% / cover no-repeat;
+      opacity: 0.5; }
+    /* keep the title area crisp, let the image show through more lower down */
     .hero .veil { position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.45) 46%, rgba(255,255,255,0.78) 100%); }
+      background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.34) 48%, rgba(255,255,255,0.6) 100%); }
     .hero .col { position: relative; z-index: 1; }
     h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.05; letter-spacing: -0.035em; font-weight: 800; margin: 0 0 22px; }
     .hero p { color: #3a4047; margin: 0 0 18px; }
@@ -101,7 +103,10 @@
 
   <nav>
     <div class="row">
-      <a class="brand" href="/">Rick Road</a>
+      <a class="brand" href="/">
+        <span class="bname">Rick Road Neighborhood</span>
+        <span class="bloc">Southampton, PA</span>
+      </a>
       <a class="nav-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u" target="_blank" rel="noopener">Complete the application</a>
     </div>
   </nav>
