@@ -469,23 +469,17 @@
         font-size: 15px;
       }
 
-      /* embedded PECO rebate flyer (PDF) */
+      /* PECO rebate flyer (native image) */
       .flyer {
         margin-top: 16px;
       }
-      .flyer-frame {
+      .flyer-img {
         width: 100%;
-        height: 780px;
+        height: auto;
+        display: block;
         border: 1px solid var(--line);
         border-radius: 14px;
-        background: #fff;
-        display: block;
         margin-bottom: 18px;
-      }
-      @media (max-width: 600px) {
-        .flyer-frame {
-          height: 460px;
-        }
       }
 
       /* contact cards */
@@ -855,12 +849,12 @@
 
         <h3>Official PECO Rebate Information</h3>
         <div class="flyer">
-          <iframe
-            class="flyer-frame"
-            src="peco-natural-gas-rebates-2026.pdf#view=FitH"
-            title="PECO Natural Gas Rebates 2026"
+          <img
+            class="flyer-img"
+            src="peco-rebates-flyer.png"
+            alt="PECO Natural Gas Rebates 2026 — official rebate flyer"
             loading="lazy"
-          ></iframe>
+          />
           <a
             class="btn"
             href="peco-natural-gas-rebates-2026.pdf"
