@@ -76,6 +76,9 @@
       a {
         color: inherit;
       }
+      p {
+        font-weight: 500;
+      }
       .col {
         max-width: var(--col);
         margin: 0 auto;
@@ -223,7 +226,7 @@
         position: absolute;
         inset: 0;
         z-index: 0;
-        background: url("energy.png") center 52% / cover no-repeat;
+        background: url("hero.jpg") center 42% / cover no-repeat;
         opacity: 0.5;
       }
       .hero .veil {
@@ -250,29 +253,30 @@
         margin: 0 0 22px;
       }
       .hero h1 {
-        font-size: clamp(22px, 3.8vw, 30px);
+        font-size: 30px;
+        line-height: 1.12;
         margin: 0 0 18px;
       }
       .hero p {
         color: #34322c;
         margin: 0 0 18px;
       }
-      .hero .hero-headline {
+      .hero .hero-sub {
         font-family: var(--display);
-        font-size: clamp(30px, 5.4vw, 48px);
-        font-weight: 700;
-        line-height: 1.07;
-        letter-spacing: -0.03em;
-        color: var(--ink);
-        margin: 30px 0 0;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--ink-soft);
+        margin: 0 0 24px;
       }
-      .hero-headline .sq {
+      .hero .sq {
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 4px;
+        width: 11px;
+        height: 11px;
+        border-radius: 3px;
         background: var(--accent);
-        margin-right: 14px;
+        margin-right: 10px;
         vertical-align: middle;
       }
 
@@ -334,12 +338,12 @@
       }
       .notlist .x {
         flex: none;
-        color: var(--muted);
+        color: var(--accent);
         font-weight: 700;
       }
       .express {
         font-family: var(--display);
-        font-size: clamp(24px, 3.4vw, 32px);
+        font-size: clamp(20px, 2.8vw, 26px);
         line-height: 1.2;
         letter-spacing: -0.025em;
         color: var(--ink);
@@ -685,7 +689,11 @@
       <div class="bg" aria-hidden="true"></div>
       <div class="veil" aria-hidden="true"></div>
       <div class="col">
-        <h1>Exploring Natural Gas for Rick Road</h1>
+        <h1>A Community Effort Led by Your Neighbors</h1>
+        <p class="hero-sub">
+          <span class="sq" aria-hidden="true"></span>Exploring Natural Gas for
+          Rick Road
+        </p>
         <p>
           Over the past several months, a group of Rick Road residents has been
           working with PECO to explore the possibility of bringing natural gas
@@ -694,10 +702,6 @@
         <p>
           PECO is currently evaluating whether natural gas service can be
           extended to Rick Road.
-        </p>
-        <p class="hero-headline">
-          <span class="sq" aria-hidden="true"></span>A Community Effort Led by
-          Your Neighbors
         </p>
       </div>
     </header>
@@ -728,8 +732,25 @@
       </div>
     </section>
 
+    <!-- NOT SURE YOU WOULD EVER SWITCH -->
+    <section class="bg-blue">
+      <div class="col">
+        <h2>Not Sure You Would Ever Switch?</h2>
+
+        <p>
+          Even if you’re unsure whether you would ever connect to natural gas,
+          your application still helps PECO evaluate the project and helps
+          reduce project costs for Rick Road.
+        </p>
+        <p class="ink">
+          The application takes about five minutes, costs nothing, and does not
+          commit you to anything.
+        </p>
+      </div>
+    </section>
+
     <!-- READY TO HELP -->
-    <section class="bg-yellow">
+    <section>
       <div class="col">
         <h2>Ready To Help?</h2>
         <ul class="checks">
@@ -761,7 +782,7 @@
     </section>
 
     <!-- HOW DOES MY APPLICATION HELP -->
-    <section>
+    <section class="bg-blue">
       <div class="col">
         <h2>How Does My Application Help?</h2>
         <p>
@@ -798,27 +819,6 @@
       </div>
     </section>
 
-    <!-- NOT SURE YOU WOULD EVER SWITCH -->
-    <section class="bg-blue">
-      <div class="col">
-        <h2>Not Sure You Would Ever Switch?</h2>
-        <p>
-          According to PECO, every completed application helps reduce project
-          costs for Rick Road and helps PECO evaluate the opportunity for our
-          neighborhood.
-        </p>
-        <p>
-          Even if you’re unsure whether you would ever connect to natural gas,
-          your application still helps PECO evaluate the project and helps
-          reduce project costs for Rick Road.
-        </p>
-        <p class="ink">
-          The application takes about five minutes, costs nothing, and does not
-          commit you to anything.
-        </p>
-      </div>
-    </section>
-
     <!-- NEIGHBORHOOD UPDATE -->
     <section>
       <div class="col">
@@ -830,10 +830,6 @@
         <p>
           PECO is continuing to gather non-binding applications from homeowners
           within the proposed project area as part of its review process.
-        </p>
-        <p>
-          According to PECO, every additional application helps reduce project
-          costs and helps PECO evaluate the opportunity for Rick Road.
         </p>
         <p>
           PECO has currently extended the non-binding application period
