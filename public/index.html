@@ -223,7 +223,16 @@
         position: relative;
         overflow: hidden;
         border-bottom: 1px solid var(--line);
-        padding: 84px 0 96px;
+        padding: 16px 0 80px;
+      }
+      .hero-photo {
+        width: 100%;
+        height: clamp(200px, 40vw, 330px);
+        object-fit: cover;
+        object-position: center 45%;
+        border-radius: 16px;
+        display: block;
+        margin: 0 0 32px;
       }
       .hero .bg {
         position: absolute;
@@ -270,7 +279,7 @@
         font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.02em;
-        color: var(--ink-soft);
+        color: var(--ink);
         margin: 0 0 24px;
       }
       .hero .sq {
@@ -629,7 +638,7 @@
 
       @media (max-width: 600px) {
         .hero {
-          padding: 54px 0 62px;
+          padding: 14px 0 56px;
         }
         section {
           padding: 46px 0;
@@ -682,9 +691,12 @@
 
     <!-- HERO -->
     <header class="hero">
-      <div class="bg" aria-hidden="true"></div>
-      <div class="veil" aria-hidden="true"></div>
       <div class="col">
+        <img
+          class="hero-photo"
+          src="hero.jpg"
+          alt="Homes along Rick Road on a bright, quiet morning"
+        />
         <h1>A Community Effort Led by Your Neighbors</h1>
         <p class="hero-sub">
           <span class="sq" aria-hidden="true"></span>Exploring Natural Gas for
@@ -705,6 +717,7 @@
     <!-- WHAT IS HAPPENING -->
     <section>
       <div class="col">
+        <p class="eyebrow">The next step</p>
         <h2>What Is Happening Right Now?</h2>
         <p>
           As the next step in the evaluation process, PECO is gathering
@@ -731,6 +744,7 @@
     <!-- NOT SURE YOU WOULD EVER SWITCH -->
     <section class="bg-blue">
       <div class="col">
+        <p class="eyebrow">No downside</p>
         <h2>Not Sure You Would Ever Switch?</h2>
 
         <p>
@@ -748,6 +762,7 @@
     <!-- READY TO HELP -->
     <section>
       <div class="col">
+        <p class="eyebrow">Take part</p>
         <h2>Ready To Help?</h2>
         <ul class="checks">
           <li><span class="ck">✓</span> Takes about 5 minutes</li>
@@ -770,7 +785,7 @@
             href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u"
             target="_blank"
             rel="noopener"
-            >Complete the Non-Binding PECO Application
+            >Click here to complete the Non-Binding PECO Application
             <span class="a" aria-hidden="true">→</span></a
           >
         </div>
@@ -780,6 +795,7 @@
     <!-- HOW DOES MY APPLICATION HELP -->
     <section class="bg-blue">
       <div class="col">
+        <p class="eyebrow">Why it matters</p>
         <h2>How Does My Application Help?</h2>
         <p>
           According to PECO, each completed non-binding application helps reduce
@@ -818,6 +834,7 @@
     <!-- NEIGHBORHOOD UPDATE -->
     <section>
       <div class="col">
+        <p class="eyebrow">Latest update</p>
         <h2>Neighborhood Update</h2>
         <p>
           Thanks to the participation of Rick Road residents, PECO has already
@@ -851,6 +868,7 @@
     <!-- A SMALL THANK YOU -->
     <section class="bg-yellow">
       <div class="col">
+        <p class="eyebrow">Our thanks</p>
         <h2>🎁 A Small Thank You From Your Neighbors</h2>
         <p>
           Several Rick Road neighbors have volunteered their time to help move
@@ -903,6 +921,7 @@
     <!-- POTENTIAL REBATES & SAVINGS -->
     <section>
       <div class="col">
+        <p class="eyebrow">Looking ahead</p>
         <h2>Potential Rebates &amp; Savings</h2>
         <p>
           If the project ultimately moves forward, PECO currently offers rebates
@@ -952,6 +971,7 @@
     <!-- QUESTIONS -->
     <section class="bg-blue">
       <div class="col">
+        <p class="eyebrow">Get in touch</p>
         <h2>Questions?</h2>
         <p>
           For questions about the project, we encourage neighbors to contact
@@ -1049,6 +1069,7 @@
     <!-- TOGETHER / CLOSING -->
     <section>
       <div class="col">
+        <p class="eyebrow">Add your name</p>
         <h2>Together, We’re Helping Create More Options for Rick Road</h2>
         <p>
           Every completed non-binding application helps PECO evaluate the
@@ -1060,7 +1081,7 @@
             href="https://forms.office.com/Pages/ResponsePage.aspx?id=_AENYF8FxkmGjz7PzHkXc1SRuR0pwXhHvwMHYcEFbThUNzJSNUs0SkxBN0RSTThIUzZPWUxFRURBVy4u"
             target="_blank"
             rel="noopener"
-            >Complete the Non-Binding PECO Application
+            >Click here to complete the Non-Binding PECO Application
             <span class="a" aria-hidden="true">→</span></a
           >
         </div>
