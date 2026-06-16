@@ -172,7 +172,13 @@
         width: 22px;
         height: 22px;
         border-radius: 6px;
-        background: var(--accent);
+        overflow: hidden;
+        display: block;
+      }
+      .brand .logo svg {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
       .brand .btext {
         display: flex;
@@ -670,7 +676,18 @@
     <nav>
       <div class="row">
         <a class="brand" href="/">
-          <span class="logo" aria-hidden="true"></span>
+          <span class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="6" fill="#fa5c40" />
+              <path
+                d="M5 13 12 7l7 6v5H5z"
+                fill="none"
+                stroke="white"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
           <span class="btext">
             <span class="bname"
               ><span class="b-long">Rick Road Neighborhood</span
